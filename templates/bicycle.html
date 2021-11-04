@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bicycle.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="navbar">
+    <div class="wrapper">
+        <div id="logo">
+            <h1>TRYCYCLE</h1>
+        </div>
+        <div class="header">
+            <ul id="box">
+                <li><a href="{% url 'basicapp:index' %}"> Home</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="flex-container">
+    {% if cycle %}
+    {% for cyc in cycle %}
+    {% if cyc.available %}
+    <div>
+        <div class="image">
+            <img src="{{ cyc.img.url }}" alt="">
+        </div>    
+        <div class="desc">
+            <h3>{{ cyc.name }}</h3>
+            <p>{{ cyc.details }}</p>
+        </div>   
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <div class="heading"><h1>No Cycles Available Right now</h1></div>   
+    {% endif %}
+</div>
+</body>
+</html>

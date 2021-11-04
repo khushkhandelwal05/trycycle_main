@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.nav
+{
+  height: 100px;
+  padding: 0 6vw;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  right:0;
+  left: 0;
+  z-index: 1;
+}
+
+.nav > .nav-header
+{
+  display: inline;
+  line-height:100px;
+}
+
+.nav > .nav-header > .nav-title
+{
+  display: inline-block;
+  font-size: 22px;
+  color: rgb(22, 22, 22);
+}
+
+.nav > .nav-btn
+{
+  display: none;
+}
+
+.nav > .nav-links
+{
+  display: inline;
+  float: right;
+  font-size: 18px;
+  line-height:100px;
+  text-align: center;
+}
+
+.nav > .nav-links > a
+{
+  display: inline-block;
+  text-decoration: none;
+  color: #050505;
+  padding-left:17.5px;
+  padding-right: 17.5px;
+  position: relative;
+}
+.nav > .nav-links > a::before
+{
+    position: absolute;
+    width: 0px;
+    height: 3px;
+    background-color: #020202;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    transition: all 0.3s;
+}
+.nav > .nav-links > a:hover::before{
+    width: 100%;
+}
+
+.nav > #nav-check {
+    display: none;
+}
+
+.table{
+    width: 100vw;
+}
+table {
+  width: 80%;
+  margin: 50px auto;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+th {
+  text-align: left;
+  height: 5px;
+  font-weight: 800;
+  font-size: 16px;
+}
+th,
+td {
+  padding: 19px 26px;
+}
+
+body {
+  background-color: white;
+}
+.z1 {
+  color: black;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  border: none;
+  font-size: 25px  ;
+}
+.z2 {
+  color: black;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+tr:nth-child(odd) {
+  background-color: #f6f6f6;
+}
+td {
+  color: black;
+  border-radius: 10px;
+}
+@media (max-width:870px)
+{
+    .nav > .nav-links > a {
+    padding: 0;
+    line-height:50px;
+    }
+    .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%)
+  }
+  .nav > .nav-btn > label
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    cursor: pointer;
+  }
+  .nav > .nav-btn > label > span
+{
+    display: block;
+    width: 30px;
+    height: 10px;
+    border-top: 2px solid rgb(8, 8, 8);
+  }
+  .nav > .nav-links
+{
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 100px;
+    left: 0px;
+  }
+  .nav > .nav-links > a
+{
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links
+{
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links
+{
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}

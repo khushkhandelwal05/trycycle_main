@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/design.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Discount</title>
+</head>
+<body style="background-image:url(/static/images/Artboard.png); font-family: poppins;">
+  <div class="nav" style="background-color: antiquewhite;">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        <h1 style="font-weight:900;margin:0">TRYCYCLE<h1>
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="bicycle" target="_blank">Cycle</a>
+      <a href="mybookings">My Bookings</a>
+      {% if user.is_authenticated %}
+      <a href="logout">Logout</a>
+      {% endif %}
+    </div>
+  </div>
+  {% if discount %}
+<div class="heading"><h1>Discounts</h1></div>   
+<div class="container">
+    {% for dis in discount %}
+    {% if dis.offer %}
+    <div class="card">
+      <div class="img-cover"><img src="{{ dis.img.url }}"><div class="icon">
+  </div></div>
+      
+      <div class="desc" style="background-color: #2e56d2">
+        <h1 style="color: white;">{{ dis.offer_on }}</h1>
+        <h3 style="color: white;">GET FLAT {{ dis.dis_amt }}% OFF</h3>
+        <h4 style="color: white;">CODE</h4>
+        <button onClick='copyText(this)' id="dis_code">{{ dis.code }}</button>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <div class="heading"><h1>No Discounts Available Right now</h1></div>   
+    {% endif %}
+    
+    
+    <script>
+    function copyText(element) {
+  var range, selection, worked;
+  
+  var copiedvalue = document.getElementById("dis_code");
+
+  if (document.body.createTextRange) {
+    range = document.body.createTextRange();
+    range.moveToElementText(element);
+    range.select();
+  } else if (window.getSelection) {
+    selection = window.getSelection();        
+    range = document.createRange();
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  
+  
+  try {
+    document.execCommand('copy');
+    alert('COPIED THE VALUE');
+  }
+  catch (err) {
+    alert('unable to copy text');
+  }
+}
+  </script>
+
+    
+    
+  </div>
+</body>
+</html>

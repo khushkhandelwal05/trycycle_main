@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(/img/Artboard\ 1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.navbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: white;
+}
+.wrapper{
+    padding: 0 6vw;
+}
+
+.header{
+    float: right;
+    line-height: 100px;
+}
+#box li{
+    position: relative;
+    padding-left: 3vw;
+    font-family: roboto;
+    font-weight: 500;
+}
+#logo{
+    display: inline-block;
+    line-height: 100px;
+}
+#logo h1{
+    font-size: 45px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 900;
+}
+.header ul{
+display: inline-flex;
+list-style-type: none;    
+}
+.wrapper{
+    padding: 0 6vw;
+}
+.flex-container {
+    margin-top: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-top:150px;
+}
+  
+.flex-container > div{
+    padding: 20px 20px;
+    width: 500px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+.desc p{
+line-height: 30px;
+font-size: 20px;
+color: rgb(119, 119, 119);
+font-family:roboto;
+}
+.desc h3{
+font-family: poppins;
+font-weight: 800;
+color: rgb(48, 48, 48);
+}
+img{
+    width: 500px;
+}
+
